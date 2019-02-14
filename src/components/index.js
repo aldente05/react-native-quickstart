@@ -4,5 +4,8 @@
 module.exports = {
     get CustomHeader() {
         return require('./CustomHeader');
+    },
+    get KeyboardSpacer(){
+        return require('./Keyboard')
     }
 };

@@ -1,16 +1,15 @@
 /**
  * Created by f.putra on 27/11/18.
  */
-import {
-    createAppContainer,
-    createStackNavigator
-} from 'react-navigation';
-
-function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
-}
+import {createAppContainer, createStackNavigator} from 'react-navigation';
 
 const navigationStack = createStackNavigator({
+        Login: {
+            screen: require('./scenes/Credentials/Login').default
+        },
+        Register: {
+            screen: require('./scenes/Credentials/Register').default
+        },
         LandingPage: {
             screen: require('./scenes/Home/LandingPage').default
         },

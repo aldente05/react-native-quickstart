@@ -17,12 +17,23 @@ class Home extends React.Component {
         this.state = {};
     }
 
-    render() {
+    navigate(path){
         const {navigation} = this.props
+        navigation.navigate(path)
+    }
+
+    render() {
+
         return (
             <View style={[customStyles.containerColumn, {alignItems: 'center'}]}>
-                <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-                    <Text>Hello</Text>
+                <TouchableOpacity onPress={() => this.navigate('Profile')}>
+                    <Text>Profile</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => this.navigate('Login')}>
+                    <Text>Login</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => this.navigate('Register')}>
+                    <Text>Register</Text>
                 </TouchableOpacity>
             </View>
         );

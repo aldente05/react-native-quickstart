@@ -48,6 +48,11 @@ const style = StyleSheet.create({
     containerRow : {
         flex : 1,
         flexDirection : 'column'
+    },
+    containerInLine :{
+        flex: 1,
+        padding: 10,
+        flexDirection: 'row'
     }
 });
 
