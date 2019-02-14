@@ -40,6 +40,14 @@ const style = StyleSheet.create({
     },
     xxxlarge: {
         fontSize: normalize(26),
+    },
+    containerColumn : {
+        flex : 1,
+        flexDirection : 'column'
+    },
+    containerRow : {
+        flex : 1,
+        flexDirection : 'column'
     }
 });
 

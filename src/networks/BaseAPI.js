@@ -76,28 +76,13 @@ imageFetch = (path) => {
 }
 
 
-const Service = {
+module.exports = {
     doRegister,
     doLogin,
-    doUpdateProfile,
     getProduct,
     getProductById,
     imageFetch
-    //, update, delete, etc. ...
 }
-
-export default Service;
-
-
 /**
  * contoh untuk dipasang di UI
  */
-
-// handleSubmit() {
-//     const {subject, message} = this.state;
-//
-//     ProfileService.create({subject, message})
-//         .then((response) => {
-//             alert(`New Message with id ${response.id} created!`);
-//         });
-// }
