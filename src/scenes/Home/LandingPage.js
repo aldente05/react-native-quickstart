@@ -2,14 +2,14 @@
  * Created by f.putra on 27/11/18.
  */
 import React from 'react';
-import {TouchableOpacity, View} from 'react-native';
-import {Text} from 'native-base'
-import customStyles from './../../utils/customStyles'
+import {View} from 'react-native';
+import {Text, Button} from 'native-base'
+import customStyles, {resolution} from './../../utils/customStyles'
 
 class Home extends React.Component {
 
     static navigationOptions = {
-        headerTitle: "Shoes"
+        headerTitle: "QUICKSTART"
     };
 
     constructor(props) {
@@ -25,16 +25,16 @@ class Home extends React.Component {
     render() {
 
         return (
-            <View style={[customStyles.containerColumn, {alignItems: 'center'}]}>
-                <TouchableOpacity onPress={() => this.navigate('Profile')}>
+            <View style={customStyles.containerColumn}>
+                <Button onPress={() => this.navigate('Profile')} style={{alignSelf : 'center', margin : 20, width : resolution('width') / 3}}>
                     <Text>Profile</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => this.navigate('Login')}>
+                </Button>
+                <Button onPress={() => this.navigate('Login')} style={{alignSelf : 'flex-end', margin : 20, width : resolution('width') / 3}}>
                     <Text>Login</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => this.navigate('Register')}>
+                </Button>
+                <Button onPress={() => this.navigate('Register')} style={{alignSelf : 'flex-start', margin : 20, width : resolution('width') / 3}}>
                     <Text>Register</Text>
-                </TouchableOpacity>
+                </Button>
             </View>
         );
     }

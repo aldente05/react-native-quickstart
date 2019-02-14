@@ -2,11 +2,23 @@
  * Created by f.putra on 4/16/17.
  */
 
-import { Dimensions, Platform, PixelRatio, StyleSheet } from 'react-native';
+import {Dimensions, PixelRatio, Platform, StyleSheet} from 'react-native';
+
 const {
     width: SCREEN_WIDTH,
     height: SCREEN_HEIGHT,
 } = Dimensions.get('window');
+
+export function resolution(param) {
+    switch (param) {
+        case 'width':
+            return Dimensions.get('window').width
+
+        case 'height':
+            return Dimensions.get('window').height
+    }
+
+}
 
 // based on iphone 5s's scale
 const scale = SCREEN_WIDTH / 320;
@@ -41,15 +53,15 @@ const style = StyleSheet.create({
     xxxlarge: {
         fontSize: normalize(26),
     },
-    containerColumn : {
-        flex : 1,
-        flexDirection : 'column'
+    containerColumn: {
+        flex: 1,
+        flexDirection: 'column'
     },
-    containerRow : {
-        flex : 1,
-        flexDirection : 'column'
+    containerRow: {
+        flex: 1,
+        flexDirection: 'column'
     },
-    containerInLine :{
+    containerInLine: {
         flex: 1,
         padding: 10,
         flexDirection: 'row'

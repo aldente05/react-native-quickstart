@@ -8,7 +8,6 @@
  */
 
 import React, {Component} from 'react';
-import {SafeAreaView, View, Text} from 'react-native'
 import Routes from './routes';
 
 type
@@ -16,7 +15,7 @@ type
 export default class App extends Component<Props> {
     render() {
         return (
-                <Routes/>
+            <Routes/>
         )
     }
 }

@@ -7,12 +7,12 @@ import {Button, Container, Content, Icon, Input, Item, Title} from 'native-base'
 import service from '../../networks/BaseAPI'
 import customStyles from '../../utils/customStyles';
 import {onEmail} from '../../utils/helper';
-import {CustomHeader, KeyboardSpacer} from '../../components/index';
+import {CustomHeader} from '../../components/index';
 
 export default class Register extends React.Component {
 
     static navigationOptions = {
-        header : null
+        header: null
     };
 
     constructor() {
@@ -108,31 +108,24 @@ export default class Register extends React.Component {
     }
 
     async onRegisterPressed() {
-        if (this.state.Emailsuccess === true && this.state.passwordSuccess === true && this.state.passwordSuccessConfirm === true) {
+        const {email, password, Emailsuccess, passwordSuccess, passwordSuccessConfirm} = this.state
+        if (Emailsuccess === true && passwordSuccess === true && passwordSuccessConfirm === true) {
             this.setState({loading: true});
-            let response = await service.doRegister(this.state.email, this.state.password, this.state.referral);
-            console.log(response);
-            if (response === "Your credential information is invalid. User is already registered") {
-                this.setState({
-                    errors: response,
-                    loading: false
-                });
-                this.clearError()
-            } else if (response => 200 && response <= 300) {
+            service.doRegister(email, password).then(result => {
                 this.setState({loading: false});
-                this.redirect('provisioning_profile');
-            } else {
+                this.props.navigation.navigate('LandingPage');
+            }).catch(error => {
                 this.setState({
-                    errors: response,
+                    errors: "Your credential information is invalid. User is already registered",
                     loading: false
                 });
                 this.clearError()
-            }
+            })
         }
     }
 
     onPressback() {
-        this.props.navigation.navigate('Login');
+        this.props.navigation.goBack();
     }
 
     async onTermAndConditionPress() {
@@ -274,7 +267,7 @@ const styles = {
         alignSelf: 'center',
         marginTop: 14,
         justifyContent: 'center',
-        alignItems : 'center'
+        alignItems: 'center'
     },
     buttonTextRegister: {
         fontSize: 20,

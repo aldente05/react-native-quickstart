@@ -5,6 +5,7 @@ import React from 'react';
 import {Dimensions, Image, ImageBackground, Text, View} from 'react-native';
 import {CustomHeader} from './../../components/index'
 import customStyles from './../../utils/customStyles'
+import {Icon} from "native-base";
 
 const {width, height} = Dimensions.get('window')
 
@@ -25,7 +26,7 @@ class Profile extends React.Component {
                              source={require('./../../assets/background.jpg')}>
                 <CustomHeader
                     transparent={true}
-                    leftContent={<Text>Left</Text>}
+                    leftContent={<Icon name={'arrow-back'} onPress={() => this.props.navigation.goBack()}/>}
                     bodyContent={<Text>Body</Text>}
                     rightContent={<Text>Right</Text>}/>
 
